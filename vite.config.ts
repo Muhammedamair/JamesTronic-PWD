@@ -17,6 +17,7 @@ export default defineConfig({
       protocol: 'ws',
       host: '127.0.0.1', // Explicitly match server host
       port: 5173,
+      overlay: false, // Disable the error overlay
     },
   },
 })
