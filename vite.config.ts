@@ -1,40 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({
-      registerType: 'autoUpdate',
-      devOptions: {
-        enabled: false // Disable PWA in development
-      },
-      manifest: {
-        name: 'JamesTronic PWA',
-        short_name: 'JamesTronic',
-        description: 'On-demand electronic repair services.',
-        theme_color: '#ffffff',
-        icons: [
-          {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
-    })
+    // The VitePWA plugin has been removed to prevent service worker
+    // interference in development mode. It will be re-added later
+    // for production builds only.
   ],
   server: {
+    host: '127.0.0.1', // Use explicit IP to avoid localhost resolution issues
+    port: 5173,
+    https: false, // Ensure HTTPS is disabled
     hmr: {
       protocol: 'ws',
-      host: 'localhost',
+      host: '127.0.0.1', // Explicitly match server host
       port: 5173,
     },
   },
