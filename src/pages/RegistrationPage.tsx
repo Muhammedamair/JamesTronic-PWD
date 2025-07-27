@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PhoneNumberInput from '../components/auth/PhoneNumberInput';
 import OtpInput from '../components/auth/OtpInput';
