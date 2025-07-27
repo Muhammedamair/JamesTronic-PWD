@@ -11,13 +11,23 @@ type Step = 'mobile' | 'otp' | 'success';
 const RegistrationPage = () => {
   const [step, setStep] = useState<Step>('mobile');
   const [confirmationResult, setConfirmationResult] = useState<ConfirmationResult | null>(null);
+  const [recaptchaVerifier, setRecaptchaVerifier] = useState<RecaptchaVerifier | null>(null);
   const navigate = useNavigate();
 
+  // Initialize reCAPTCHA verifier only once on component mount
+  useEffect(() => {
+    const verifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+      'size': 'invisible'
+    });
+    setRecaptchaVerifier(verifier);
+  }, []);
+
   const handleMobileSubmit = async (phoneNumber: string) => {
+    if (!recaptchaVerifier) {
+      console.error("reCAPTCHA verifier not initialized");
+      return;
+    }
     try {
-      const recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-        'size': 'invisible'
-      });
       const result = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
       setConfirmationResult(result);
       setStep('otp');
@@ -70,6 +80,7 @@ const RegistrationPage = () => {
           )}
         </Box>
       </Box>
+      {/* This container is required for Firebase reCAPTCHA and is now managed by the useEffect hook */}
       <div id="recaptcha-container" style={{ marginTop: '20px' }}></div>
     </Container>
   );
