@@ -3,15 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Immediately log the API key to check if it's loaded.
-// This is for debugging purposes and should be removed later.
-if (!import.meta.env.VITE_FIREBASE_API_KEY) {
-  console.warn(
-    "Firebase API Key is MISSING. " +
-    "Please ensure you have a .env.local file in the root of the project with the correct VITE_FIREBASE_API_KEY variable."
-  );
-}
-
 // Your web app's Firebase configuration is loaded from environment variables
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
