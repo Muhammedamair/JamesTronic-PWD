@@ -10,7 +10,7 @@ export default defineConfig({
     // for production builds only.
   ],
   server: {
-    host: '127.0.0.1', // Use explicit IP to avoid localhost resolution issues
+    host: '0.0.0.0', // Allow access from local network
     port: 5173,
     https: false, // Ensure HTTPS is disabled
     hmr: {
