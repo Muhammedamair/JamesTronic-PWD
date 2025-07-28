@@ -92,7 +92,6 @@ dist
 # Gatsby files
 .cache/
 # Add any Gatsby specific files which shouldn't be committed
-public
 
 # vuepress build output
 .vuepress/dist
