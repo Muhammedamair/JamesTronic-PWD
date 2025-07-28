@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "vite --force",
     "build": "tsc && vite build",
-    "lint": "npm run lint:frontend && npm run lint:backend",
-    "lint:frontend": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:backend": "eslint functions --ext .ts",
+    "lint": "eslint . --ext .ts,.tsx",
     "preview": "vite build && vite preview"
   },
   "dependencies": {
@@ -28,6 +26,7 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "typescript": "^5.0.2",

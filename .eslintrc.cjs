@@ -1,7 +1,24 @@
 module.exports = {
-  root: true,
-  // This is the root-level configuration.
-  // It's intentionally sparse because the sub-directories have their own configurations.
-  // This file's main purpose is to stop ESLint from searching for configurations
-  // in parent directories.
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react"
+    ],
+    "rules": {
+    },
+    "ignorePatterns": ["dist", "lib", "node_modules", "*.cjs", "*.js"]
 };
