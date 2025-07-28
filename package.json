@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite --force",
     "build": "tsc && vite build",
-    "lint": "eslint .",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:backend": "eslint functions --ext .ts",
     "preview": "vite build && vite preview"
   },
   "dependencies": {
