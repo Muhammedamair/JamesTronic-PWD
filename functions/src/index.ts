@@ -32,8 +32,8 @@ export const createProvisionalUser = functions.auth.user().onCreate(async (user)
 /**
  * An HTTPS callable function to send an activation email.
  */
-export const sendActivationEmail = functions.https.onCall(async (data, context) => {
-  const uid = context.auth?.uid;
+export const sendActivationEmail = functions.https.onCall(async (data, _context) => {
+  const uid = _context.auth?.uid;
   const email = data.email;
 
   if (!uid) {
@@ -61,7 +61,7 @@ export const sendActivationEmail = functions.https.onCall(async (data, context) 
 /**
  * An HTTPS callable function to activate the user's account.
  */
-export const activateAccount = functions.https.onCall(async (data, context) => {
+export const activateAccount = functions.https.onCall(async (data) => {
   const token = data.token;
 
   if (!token || typeof token !== "string") {
