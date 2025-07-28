@@ -7,7 +7,8 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -18,6 +19,11 @@ module.exports = {
         "@typescript-eslint",
         "react"
     ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "rules": {
     },
     "ignorePatterns": ["dist", "lib", "node_modules", "*.cjs", "*.js"]
